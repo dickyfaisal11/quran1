@@ -13,7 +13,7 @@
 <body>
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="text-center mb-0">Qur'an online</h1>
+            <h1 class="text-center mb-0">Qur'an App</h1>
             <button id="themeToggle" class="btn btn-sm btn-outline-secondary">
                 <i class="fas fa-moon"></i> Mode Gelap
             </button>
@@ -40,7 +40,6 @@
     {{ surah.nama_latin }} 
     <small class="ms-2" style="display: block; margin-top: 5px;">({{ surah.arti }})</small>
 </a>
-
                             {% endfor %}
                         </div>
                     </div>
@@ -53,6 +52,10 @@
                     <div class="card-header bg-success text-white d-flex justify-content-between">
                         <span id="surahTitle">Pilih Surah</span>
                         <div id="surahInfo"></div>
+                        <!-- Tombol Fullscreen -->
+                        <button id="fullscreenToggle" class="btn btn-sm btn-outline-secondary">
+                            <i class="fas fa-expand"></i> Fullscreen
+                        </button>
                     </div>
                     <div class="card-body" id="ayatContainer">
                         <div class="text-center text-muted py-5">
@@ -97,6 +100,24 @@
             }
         });
 
+        // Fullscreen Toggle
+        const fullscreenToggle = document.getElementById('fullscreenToggle');
+        const ayatContainer = document.getElementById('ayatContainer');
+
+        fullscreenToggle.addEventListener('click', () => {
+            if (window.innerWidth <= 768) { // Cek jika lebar layar kecil (mobile)
+                if (ayatContainer.classList.contains('fullscreen-mode')) {
+                    // Kembali dari fullscreen
+                    ayatContainer.classList.remove('fullscreen-mode');
+                    fullscreenToggle.innerHTML = '<i class="fas fa-expand"></i> Fullscreen';
+                } else {
+                    // Masuk ke fullscreen
+                    ayatContainer.classList.add('fullscreen-mode');
+                    fullscreenToggle.innerHTML = '<i class="fas fa-compress"></i> Kembali';
+                }
+            }
+        });
+
         // Load Ayat
         document.querySelectorAll('.surah-item').forEach(item => {
             item.addEventListener('click', async function() {
@@ -120,7 +141,7 @@
 
                 // Tampilkan gambar basmalah untuk semua surah kecuali At-Tawbah (9)
                 if (parseInt(data.nomor) !== 9) {
-                    ayatHTML += `
+                    ayatHTML += ` 
                         <div class="basmalah text-center my-4">
                             <img src="/static/images/basmalah.png" alt="Bismillah" class="basmalah-image">
                         </div>
@@ -129,18 +150,18 @@
 
                 // Tampilkan ayat-ayat
                 data.ayat.forEach(ayat => {
-    ayatHTML += `
-        <div class="ayat-card mb-4">
-            <div class="arabic-ayat arabic-text">
-                ${ayat.ar}
-                <span class="ayat-number-badge">${toArabicNumber(ayat.nomor)}</span>
-            </div>
-            <div class="translation mt-3">
-                <p class="mb-2"><strong>Terjemahan Ayat ${ayat.nomor}</strong></p>
-                <p class="translation-text">${ayat.idn}</p>
-            </div>
-            <hr class="my-3">
-        </div>
+                    ayatHTML += `
+                        <div class="ayat-card mb-4">
+                            <div class="arabic-ayat arabic-text">
+                                ${ayat.ar}
+                                <span class="ayat-number-badge">${toArabicNumber(ayat.nomor)}</span>
+                            </div>
+                            <div class="translation mt-3">
+                                <p class="mb-2"><strong>Terjemahan Ayat ${ayat.nomor}</strong></p>
+                                <p class="translation-text">${ayat.idn}</p>
+                            </div>
+                            <hr class="my-3">
+                        </div>
                     `;
                 });
 
