@@ -13,7 +13,7 @@
 <body>
     <div class="container mt-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="text-center mb-0">Al-Quran</h1>
+            <h1 class="text-center mb-0">Qur'an online</h1>
             <button id="themeToggle" class="btn btn-sm btn-outline-secondary">
                 <i class="fas fa-moon"></i> Mode Gelap
             </button>
@@ -35,10 +35,12 @@
                         <div class="list-group" id="surahList">
                             {% for surah in surah_list %}
                             <a href="#" class="list-group-item list-group-item-action surah-item" 
-                               data-surah-number="{{ surah.nomor }}">
-                                <span class="badge bg-success me-2">{{ surah.nomor }}</span>
-                                {{ surah.nama_latin }} <small>({{ surah.arti }})</small>
-                            </a>
+   data-surah-number="{{ surah.nomor }}">
+    <span class="badge bg-success me-2">{{ surah.nomor }}</span>
+    {{ surah.nama_latin }} 
+    <small class="ms-2" style="display: block; margin-top: 5px;">({{ surah.arti }})</small>
+</a>
+
                             {% endfor %}
                         </div>
                     </div>
