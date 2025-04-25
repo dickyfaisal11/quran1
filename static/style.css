@@ -43,7 +43,7 @@ body {
 
 .surah-list,
 #ayatContainer {
-    max-height: 75vh;
+    max-height: 70vh;
     overflow-y: auto;
 }
 
@@ -52,18 +52,19 @@ body {
     padding-bottom: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
+    max-height: 80vh;
 
     }
 
 .arabic-text,.arabic-ayat {
-    font-family: LPMQ, Arial , verdana, serif;
+    font-family: 'LPMQ', sans-serif;
     font-size: var(--arabic-font-size);
     line-height: var(--arabic-line-height);
     text-align: right;
     direction: rtl;
     margin: 1rem 0;
-    padding: 0.5rem 0;
-    word-spacing: -7px;
+    padding: 0.3rem 0;
+    word-spacing: -5px;
     letter-spacing: 0rem;
     color: var(--arabic-color);  
     font-weight: normal; /* This removes the bold */
@@ -143,12 +144,12 @@ body {
 /* Terjemahan */
 .translation {
     font-family: 'Inter', sans-serif;
-    text-align: left;
+    text-align: justify;
     font-size: 1rem;
     line-height: 1.6;
     margin-top: 0.1rem;
     color: var(--text-color);
-    margin-bottom: -50px;
+    margin-bottom: -20px;
 }
 
 .translation-text {
@@ -174,6 +175,7 @@ body {
     padding: 1rem;
     border-radius: 0.25rem;
     margin-bottom: 200px;
+    text-align: justify;
 }
 
 /* Scrollbar */
@@ -247,6 +249,24 @@ body {
         --arabic-font-size: 2rem;
         /* Lebih ringkas di layar kecil */
     }
+
+    .translation-text {
+        text-align: justify;
+        line-height: 1.8;
+        font-size: 1rem;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .surah-description {
+        text-align: justify;
+        line-height: 1.8;
+        font-size: 1rem;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    
 
     .fullscreen-mode {
         position: fixed;
