@@ -35,10 +35,9 @@
                         <div class="list-group" id="surahList">
                             {% for surah in surah_list %}
                             <a href="#" class="list-group-item list-group-item-action surah-item" 
-   data-surah-number="{{ surah.nomor }}">
-    <span class="badge bg-success me-2">{{ surah.nomor }}</span>
-    {{ surah.nama_latin }} 
-    <small class="ms-2" style="display: block; margin-top: 5px;">({{ surah.arti }})</small>
+                             data-surah-number="{{ surah.nomor }}">
+                            <span class="badge bg-success me-2">{{ surah.nomor }}</span> {{ surah.nama_latin }} 
+                        <small class="ms-2" style="display: block; margin-top: 5px;">({{ surah.arti }})</small>
 </a>
                             {% endfor %}
                         </div>
