@@ -1,0 +1,264 @@
+:root {
+    --primary-bg: rgb(248, 250, 252);
+    --secondary-bg: #ffffff;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.125);
+    --arabic-color: rgb(6, 6, 6);
+    --arabic-line-height: 4rem;
+    --arabic-font-size: 2.3rem;
+    --ayat-spacing: -10px;
+    --basmalah-filter: none;
+    --basmalah-filter-dark: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.1) sepia(0.2);
+}
+
+[data-bs-theme="dark"] {
+    --primary-bg: rgb(14, 14, 15);
+    --secondary-bg: rgb(12, 12, 12);
+    --text-color: rgb(255, 255, 255);
+    --card-bg: rgb(4, 4, 4);
+    --card-border: rgb(252, 252, 252);
+    --arabic-color: rgb(255, 253, 253);
+    --ayat-number-badge: rgb(5, 5, 5);
+    --basmalah-filter: var(--basmalah-filter-dark);
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border-color: var(--card-border);
+    box-shadow: 0 0.125rem 0.25rem rgba(255, 254, 254, 0.98);
+    transition: all 0.3s ease;
+}
+
+.surah-list,
+#ayatContainer {
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+.ayatContainer {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    }
+
+.arabic-text,.arabic-ayat {
+    font-family: 'Scheherazade New', serif;
+    font-size: var(--arabic-font-size);
+    line-height: var(--arabic-line-height);
+    text-align: right;
+    direction: rtl;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+    word-spacing: -5px;
+    letter-spacing: 0rem;
+    color: var(--arabic-color);  
+    font-weight: ;
+
+   
+}
+.arabic-text {
+    margin-top: -10px;
+}
+
+.ayat-card {
+    margin-bottom: 0.3rem;
+    border-radius: 5px;
+    background-color: var(--secondary-bg);
+    border-left: 0px solid var(--arabic-color);
+    transition: all 0.3s ease;
+    padding: 1rem;
+    
+}
+
+.ayat-card:first-of-type {
+    margin-top: 0rem;
+}
+
+.basmalah {
+    font-size: 25px;
+    margin: 10px;
+    padding: 2px;
+    line-height: 20px;
+    text-align: center;
+    height: 200px;
+}
+
+.basmalah.text-center.my-4 {
+    margin-top: -30px;
+    height: 15%;
+}
+
+/* Gambar basmalah */
+.basmalah-image {
+    max-width: 40%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    filter: var(--basmalah-filter);
+    transition: filter 0.3s ease;
+}
+
+[data-bs-theme="dark"] .basmalah {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Nomor ayat */
+.ayat-number-badge {
+    background-color: var(--arabic-color);
+    color: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    margin-left: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+}
+
+/* Mode gelap ayat number badge */
+[data-bs-theme="dark"] .ayat-number-badge {
+    background-color: #2c3e50;
+    color: #f8f9fa;
+    border: 0px solid #495057;
+}
+
+/* Terjemahan */
+.translation {
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-top: 0.1rem;
+    color: var(--text-color);
+    margin-bottom: -50px;
+}
+
+.translation-text {
+    margin-bottom: 15px;
+    margin-top: 10px;
+
+}
+
+/* Daftar surah */
+.surah-item {
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.surah-item:hover {
+    transform: translateX(5px);
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+.surah-description {
+    background-color: var(--secondary-bg);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 200px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--secondary-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--arabic-color);
+    border-radius: 4px;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    :root {
+        --arabic-line-height: 2.8rem;
+        --arabic-font-size: 1.6rem;
+        --ayat-spacing: 1.3rem;
+    }
+
+    .basmalah {
+        font-size: 1.8rem;
+        margin: 2rem 0;
+        height: auto;
+    }
+
+    .basmalah-image {
+        max-width: 90%;
+    }
+
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-4,
+    .col-md-8 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .ayat-card:first-of-type {
+        margin-top: 1rem;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .basmalah-image {
+        max-width: 300px;
+    }
+    :root {
+        --arabic-line-height: 4rem; /* Lebih padat, tapi tetap enak dibaca */
+        --arabic-font-size: 2rem;
+
+    }
+}
+
+/* Handphone */
+@media (max-width: 768px) {
+    .basmalah-image {
+        max-width: 220px;
+    }
+    :root {
+        --arabic-line-height: 4.2rem; 
+        --arabic-font-size: 2rem;
+        /* Lebih ringkas di layar kecil */
+    }
+}
+
+.card-header.bg-primary.text-white {
+    background:  #212529;
+}
+
+.card-header.bg-primary.text-white {
+    background-color:rgba(34, 105, 38, 0.92) !important; /* Bisa diganti dengan warna custom */
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid rgba(156, 163, 153, 0);
+}
+
+.ayat-card.mb-4 {
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-bottom: 10px;
+
+}
+    
