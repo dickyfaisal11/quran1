@@ -6,7 +6,7 @@
     --card-border: rgba(0, 0, 0, 0.125);
     --arabic-color: rgb(6, 6, 6);
     --arabic-line-height: 4rem;
-    --arabic-font-size: 2.3rem;
+    --arabic-font-size: 2.2rem;
     --ayat-spacing: -10px;
     --basmalah-filter: none;
     --basmalah-filter-dark: invert(1) hue-rotate(180deg) brightness(1.2) contrast(1.1) sepia(0.2);
@@ -21,6 +21,11 @@
     --arabic-color: rgb(255, 253, 253);
     --ayat-number-badge: rgb(5, 5, 5);
     --basmalah-filter: var(--basmalah-filter-dark);
+    --btn-light: rgb(4, 4, 4);
+}
+
+[data-bs-theme="dark"]{
+    .btn.btn-light:  rgb(4, 4, 4);
 }
 
 body {
@@ -51,17 +56,19 @@ body {
     }
 
 .arabic-text,.arabic-ayat {
-    font-family: 'Scheherazade New', serif;
+    font-family: LPMQ, Arial , verdana, serif;
     font-size: var(--arabic-font-size);
     line-height: var(--arabic-line-height);
     text-align: right;
     direction: rtl;
     margin: 1rem 0;
     padding: 0.5rem 0;
-    word-spacing: -5px;
+    word-spacing: -7px;
     letter-spacing: 0rem;
     color: var(--arabic-color);  
-    font-weight: ;
+    font-weight: normal; /* This removes the bold */
+
+
 
    
 }
@@ -240,6 +247,23 @@ body {
         --arabic-font-size: 2rem;
         /* Lebih ringkas di layar kecil */
     }
+
+    .fullscreen-mode {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        z-index: 1050;
+        overflow: auto;
+        padding: 10px;
+    }
+
+    #ayatContainer.fullscreen-mode {
+        background-color: #f8f9fa;
+        overflow-y: scroll;
+    }
 }
 
 .card-header.bg-primary.text-white {
@@ -247,7 +271,7 @@ body {
 }
 
 .card-header.bg-primary.text-white {
-    background-color:rgba(34, 105, 38, 0.92) !important; /* Bisa diganti dengan warna custom */
+    background-color: #198754 !important; /* Bisa diganti dengan warna custom */
     color: #fff !important;
     font-weight: bold;
     font-size: 1.1rem;
